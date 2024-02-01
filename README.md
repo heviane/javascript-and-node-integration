@@ -1,8 +1,8 @@
-# javascript-and-node-integration
+# Javascript and Node Integration
 
-From Frontend to Backend: Integrating JavaScript with Node.js
+Integrating frontend (javascript) with backend (NodeJS).
 
-## Tasks
+## Examples
 
 - [X] backend with pure Node
 - [X] backend with Node and Express.js
@@ -11,3 +11,7 @@ From Frontend to Backend: Integrating JavaScript with Node.js
 - [X] frontend with HTML (Calling an API with fetch() and async/await)
 - [X] frontend with HTML (Calling an API with XMLHttpRequest **old way**)
 - [ ] frontend with React
+
+## References
+
+- Código fonte gerado por [chatGPT](https://chat.openai.com/) com revisão humana.

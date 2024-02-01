@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Set the character set and viewport for better rendering on various devices -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integration with JavaScript and Node</title>
+</head>
+<body>
+    <!-- Display a heading and a button to trigger API request -->
+    <h1>Example of calling an API</h1>
+
+    <button id="apiButton">Click here</button>
+    
+    <!-- Display the result of the API request -->
+    <div id="result"></div>
+    <!-- JavaScript code for handling button click and making API request -->
+    <script>
+        // Attach an event listener to the button to trigger the fetchData function
+        document.getElementById('apiButton').addEventListener('click', fetchData);
+        // Define the asynchronous function to fetch data from the API
+        async function fetchData() {
+            try {
+                // Use the fetch function to make a GET request to the API endpoint
+                const response = await fetch('http://localhost:3000/api/message'); 
+                // Check if the response status is ok, otherwise throw an error
+                if (!response.ok) {
+                    throw new Error(`Request error: ${response.status}`);
+                }
+                // Parse the JSON response and display the message in the 'result' div
+                const data = await response.json();
+                document.getElementById('result').innerText = data.message;
+            } catch (error) {
+                // Log an error message if there's an issue with the API request
+                console.error('Error getting data from API:', error);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integration with JavaScript and Node</title>
+</head>
+<body>
+    <h1>Example of calling an API</h1>
+    
+    <button onclick="chamarAPI()">Click here!</button>
+
+    <script>
+        function chamarAPI() {
+
+            var xhr = new XMLHttpRequest();
+
+            // xhr.open('GET', '/api/message', true); // GET http://localhost:8080/api/message 404 (Not Found)
+            xhr.open('GET', 'http://localhost:3000/api/message', true);
+
+            xhr.onload = function () {
+            if (xhr.status >= 200 && xhr.status < 300) {
+                var responseData = JSON.parse(xhr.responseText);
+                alert(responseData.message);
+            } else {
+                console.error('Erro na requisição da API: ' + xhr.statusText);
+            }
+            };
+
+            xhr.onerror = function () {
+                console.error('Erro de rede ao chamar a API.');
+            };
+
+            xhr.send();
+        }
+        /*
+            No código acima, XMLHttpRequest é usado para fazer uma requisição assíncrona GET à rota /api/message. 
+            O código no bloco onload é executado quando a resposta é recebida. 
+            No entanto, é importante notar que fetch() é mais moderno, mais fácil de usar e geralmente preferido em projetos recentes de desenvolvimento web.
+        
+            Antiga técnica de criar uma instância do objeto XMLHttpRequest.
+        */
+    </script>
+
+</body>
+</html>

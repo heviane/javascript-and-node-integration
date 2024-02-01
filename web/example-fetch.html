@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integration with JavaScript and Node</title>
+</head>
+<body>
+    <h1>Example of calling an API</h1>
+
+    <button onclick="chamarAPI()">Click here!</button>
+    
+    <script>
+        function chamarAPI() {
+            // fetch('/api/message') // Error when running both apps locally 
+            fetch('http://localhost:3000/api/message')
+            .then(response => response.json())
+            .then(data => alert(data.message));
+        }
+        /*
+            O fetch() é uma função do JavaScript que é usada para fazer requisições de rede, 
+            geralmente para buscar ou enviar dados para um servidor web. 
+            
+            É comumente usado para fazer solicitações HTTP assíncronas, 
+            como buscar informações de uma API.
+
+            Quando você usa fetch(), está iniciando uma requisição de rede e obtendo uma Promise 
+            (promessa) como resultado. Essa Promise é então tratada para processar 
+            a resposta da requisição, seja para exibir dados no frontend, 
+            enviar informações para o servidor, ou realizar outras operações relacionadas à rede.
+
+            Em resumo, fetch() é uma ferramenta poderosa para lidar com comunicação entre o 
+            frontend e o backend em desenvolvimento web.
+        */
+    </script>
+
+</body>
+</html>

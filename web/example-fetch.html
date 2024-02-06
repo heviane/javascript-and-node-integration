@@ -37,16 +37,21 @@
 <body>
     <h1>Example of calling an API</h1>
 
-    <button onclick="chamarAPI()">Click here!</button>
+    <button onclick="callAPI()">Click here!</button>
     
     <script>
-        function chamarAPI() {
-            // fetch('/api/message') // Error when running both apps locally 
+        function callAPI() {
             fetch('http://localhost:3000/api/message')
             .then(response => response.json())
             .then(data => alert(data.message));
         }
     </script>
+
+<!-- async function fetchData() {
+    const response = await fetch('/api/mensagem');
+    const data = await response.json();
+    alert(data.message);
+  } -->
 
 </body>
 </html>
